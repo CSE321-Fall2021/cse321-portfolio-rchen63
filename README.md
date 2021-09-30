@@ -1,7 +1,7 @@
 # About
-  Term: 2021 Fall
+  Term: Fall 2021
   
-  Class: CSE 321
+  Class: CSE 321 - RealTime and Embedded Operating Systems
   
   Author: Ray Chen (rchen63@buffalo.edu)
   
