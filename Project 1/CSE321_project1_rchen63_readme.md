@@ -103,15 +103,12 @@ Custom Functions
 saveTheWorld:
 
     Description:
-
 	    If there is no unicorn, the world will be set on fire.
         After 2000 time unit, the fire will be extinguished.
         After 500 time unit, the function will run again.
         Else If there is an unicorn, nothing happens to the world, because unicorn can protect the world.
-
 	Inputs:
 		None
-
 	Globally referenced things used:
 	    Unicorns, zombie, fire and printf
 
@@ -119,10 +116,8 @@ Zombie_is_out:
 
     Description:
         Make 1 zombie
-
     Inputs:
         None
-
     Globally referenced things used:
         Zombie
 
@@ -132,10 +127,8 @@ Unicorn_save_the_world:
         If there is 1 zombie, an new unicorn will appear. 
         If there is already one unicorn, both the new and old unicorn disppear.
         The zombie is eliminated no matter what.
-
     Inputs:
         None
-        
     Globally referenced things used:
         Unicorn, Zombie
 
