@@ -70,30 +70,30 @@ Things Declared
 API and Built In Elements Used
 ----------
 Thread: 
+
     Allows things to be configured with scheduling and priority management. It
     is a block of code that will execute based on an event.
     There are methods to access information with this controller and to control
     it. Specifically in this project you will see: get_state and start
-
     https://os.mbed.com/docs/mbed-os/v6.14/apis/thread.html
 
 IntteruptIn: 
+
     This creates a reference to an interrupt with a variable name to allow
     additional interaction. This interrupt is triggered by the button, with actions
     on both rise and fall of the signal.
     There are methods to configure the interrupt, specifically: rise and fall.
-
     https://os.mbed.com/docs/mbed-os/v6.14/apis/interruptin.html
 
 DigitalOut:
+
     Allows you to set up a GPIO pin as an output, doing all that initialization
     stuff.  
-
     https://os.mbed.com/docs/mbed-os/v6.14/apis/digitalout.html
 
 Thread_sleep_for:
-    Thread_sleep_for is a time delay function, causes unit delay.
 
+    Thread_sleep_for is a time delay function, causes unit delay.
     https://os.mbed.com/docs/mbed-os/v6.12/mbed-os-api-doxy/group__mbed__thread.html#gaaa7efb95f13c2f6055a930fd8ae06942
 
 
