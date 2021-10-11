@@ -8,6 +8,8 @@ This repository will contain the project works of CSE 321.
 
 10.3: 
 
-  Project 1 complete and uploaded
+    Project 1 complete and uploaded
 
-10:10: Project 2
+10:10: 
+
+    Project 2
