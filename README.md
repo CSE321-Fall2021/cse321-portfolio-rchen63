@@ -6,6 +6,7 @@ This repository will contain the project works of CSE 321.
 
 # Update
 
-10.3: Project 1 complete
+10.3: 
+  Project 1 complete and uploaded
 
 10:10: Project 2
