@@ -1,9 +1,152 @@
-# About
+-------------------
+Last Update date
+-------------------
+10/14/2021
 
+-------------------
+About
+-------------------
 This is Project 2 of CSE 321
 
 An alarm/timer system will be implemented using the Necleo embedded platform.
 
-# Update
 
-10.10: Uploaded CSE321_project2_stage2_part1_username.pdf
+--------------------
+Features
+--------------------
+None
+
+
+--------------------
+Required Materials
+--------------------
+-Nucleo L4R5ZI
+-4x4 Matrix Membrane Keypad
+-1602 LCD
+
+
+--------------------
+Resources and References
+--------------------
+
+IntteruptIn: https://os.mbed.com/docs/mbed-os/v6.14/apis/interruptin.html
+
+Thread_sleep_for: https://os.mbed.com/docs/mbed-os/v6.12/mbed-os-api-doxy/group__mbed__thread.html#gaaa7efb95f13c2f6055a930fd8ae06942
+
+
+--------------------
+Getting Started
+--------------------
+
+
+
+--------------------
+CSE321_project2_rchen63_main.cpp:
+--------------------
+
+
+
+--------------------
+lcd1602.cpp:
+--------------------
+
+
+----------
+Things Declared
+----------
+0. "mbed.h"
+1. "lcd1602.h"
+2. keypad_c
+3. keypad
+4. InterruptIn col0(PD_3)
+5. InterruptIn col1(PD_2)
+6. InterruptIn col2(PD_1)
+7. InterruptIn col3(PD_0)
+8. void isr_col0()
+9. void isr_col1()
+10. void isr_col2()
+11. void isr_col3()
+12. void spin_polling()
+13. CSE321_LCD LCD(16, 2, LCD_5x8DOTS, PB_9, PB_8)
+14. int row = 0
+15. int col = 0
+16. int press = 0
+17. char Time[5] = {'0',':','0','0',0}
+
+
+----------
+API and Built In Elements Used
+----------
+IntteruptIn: 
+
+    This creates a reference to an interrupt with a variable name to allow
+    additional interaction. This interrupt is triggered by the button, with actions
+    on both rise and fall of the signal.
+    There are methods to configure the interrupt, specifically: rise and fall.
+    https://os.mbed.com/docs/mbed-os/v6.14/apis/interruptin.html
+
+Thread_sleep_for:
+
+    Thread_sleep_for is a time delay function, causes unit delay.
+    https://os.mbed.com/docs/mbed-os/v6.12/mbed-os-api-doxy/group__mbed__thread.html#gaaa7efb95f13c2f6055a930fd8ae06942
+
+
+----------
+Custom Functions
+----------
+saveTheWorld:
+
+  Description:
+	    If there is no unicorn, the world will be set on fire.
+        After 2000 time unit, the fire will be extinguished.
+        After 500 time unit, the function will run again.
+        Else If there is an unicorn, nothing happens to the world, because unicorn can protect the world.
+	Inputs:
+		  None
+	Globally referenced things used:
+	    Unicorns, zombie, fire and printf
+
+isr_col0:
+
+    Description:
+      ISR handler of the intterupt col0, rise edge triggered by PD_3
+    Inputs:
+		  None
+	  Globally referenced things used:
+	    row, col, press
+      
+isr_col1:
+
+    Description:
+      ISR handler of the intterupt col0, rise edge triggered by PD_2
+    Inputs:
+		  None
+	  Globally referenced things used:
+	    row, col, press
+      
+isr_col2:
+
+    Description:
+      ISR handler of the intterupt col0, rise edge triggered by PD_1
+    Inputs:
+		  None
+	  Globally referenced things used:
+	    row, col, press
+
+isr_col3:
+
+    Description:
+      ISR handler of the intterupt col0, rise edge triggered by PD_0
+    Inputs:
+		  None
+	  Globally referenced things used:
+	    row, col, press
+
+spin_polling:
+
+    Description:
+      Spin polling to output 1 from each of PD_4, PD_5, PD_6 and PD_7 periodically
+    Inputs:
+		  None
+	  Globally referenced things used:
+	    None
