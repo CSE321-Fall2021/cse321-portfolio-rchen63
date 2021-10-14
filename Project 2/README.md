@@ -21,7 +21,9 @@ None
 Required Materials
 --------------------
 -Nucleo L4R5ZI
+
 -4x4 Matrix Membrane Keypad
+
 -1602 LCD
 
 
@@ -37,18 +39,29 @@ Thread_sleep_for: https://os.mbed.com/docs/mbed-os/v6.12/mbed-os-api-doxy/group_
 --------------------
 Getting Started
 --------------------
+Keypad: Connect pin 8 to PD_7, pin 7 to PD_6, pin 6 to PD_5, pin 5 to PD_4, pin 4 to PD_3, pin 3 to PD_2, pin 2 to PD_1  and pin 1 to PD_0.
 
+1602LCD: Connect GND to GND, VCC to +5V, SDA to PB_9 and SCL to PB_8.
+
+Load the codes to Nucleo.
+
+Press "A" on keypad to start the timer.
+
+Press "B" on keypad to stop/turn off.
+
+Press "D" on keypad to start input the time.
+
+Time is entered as m:ss.
 
 
 --------------------
 CSE321_project2_rchen63_main.cpp:
 --------------------
+The main program that implement the logic. Spin polling and interrupts are used to interact with the 4x4 matrix keypad. 
 
+The keypad is used for user input, LCD will react to the user input of keypad.
 
-
---------------------
-lcd1602.cpp:
---------------------
+Currently, only time inputing part is implemented. More function will be implemented lately.
 
 
 ----------
