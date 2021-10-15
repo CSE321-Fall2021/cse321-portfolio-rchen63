@@ -16,4 +16,4 @@ This repository will contain the project works of CSE 321.
     
 10.15：
     
-    Project 2 stage 2 completed
+    Project 2 stage 2 completed and uploaded
