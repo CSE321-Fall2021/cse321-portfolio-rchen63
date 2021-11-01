@@ -123,34 +123,34 @@ isr_col1:
 
     Description:
         ISR handler of the intterupt col0, rise edge triggered by PD_2
-    Inputs:
-	None
-    Globally referenced things used:
-	row, col, press
+	    Inputs:
+		None
+	    Globally referenced things used:
+		row, col, press
       
 isr_col2:
 
     Description:
         ISR handler of the intterupt col0, rise edge triggered by PD_1
-    Inputs:
-	None
-    Globally referenced things used:
-	row, col, press
+	    Inputs:
+		None
+	    Globally referenced things used:
+		row, col, press
 
 isr_col3:
 
     Description:
         ISR handler of the intterupt col0, rise edge triggered by PD_0
-    Inputs:
-	None
-    Globally referenced things used:
-	row, col, press
+	    Inputs:
+		None
+	    Globally referenced things used:
+		row, col, press
 
 spin_polling:
 
     Description:
       Spin polling to output 1 from each of PD_4, PD_5, PD_6 and PD_7 periodically
-    Inputs:
-	None
-    Globally referenced things used:
-	None
+	    Inputs:
+		None
+	    Globally referenced things used:
+		None
