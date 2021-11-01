@@ -67,9 +67,8 @@ Currently, only time inputing part is implemented. More function will be impleme
 ----------
 Things Declared
 ----------
-0. "mbed.h"
-1. "lcd1602.h"
-2. keypad_c
+1. "mbed.h"
+2. "lcd1602.h"
 3. keypad
 4. InterruptIn col0(PD_3)
 5. InterruptIn col1(PD_2)
@@ -83,8 +82,11 @@ Things Declared
 13. CSE321_LCD LCD(16, 2, LCD_5x8DOTS, PB_9, PB_8)
 14. int row = 0
 15. int col = 0
-16. int press = 0
-17. char Time[5] = {'0',':','0','0',0}
+16. ready = 0
+17. pause = 0
+18. time_up = 0
+19. int press = 0
+20. char Time[5] = {'0',':','0','0',0}
 
 
 ----------
@@ -107,17 +109,6 @@ Thread_sleep_for:
 ----------
 Custom Functions
 ----------
-saveTheWorld:
-
-  Description:
-	    If there is no unicorn, the world will be set on fire.
-        After 2000 time unit, the fire will be extinguished.
-        After 500 time unit, the function will run again.
-        Else If there is an unicorn, nothing happens to the world, because unicorn can protect the world.
-	Inputs:
-		  None
-	Globally referenced things used:
-	    Unicorns, zombie, fire and printf
 
 isr_col0:
 
