@@ -84,11 +84,11 @@ Things Declared
 ----------
 1. "mbed.h"
 2. "lcd1602.h"
-3. char const keypad[4][4] = {
+3. char const keypad[4][4] = 
         {'1','2','3','A'}, 
         {'4','5','6','B'},  
         {'7','8','9','C'},    
-        {'*','0','#','D'}  } 
+        {'*','0','#','D'}
 4. InterruptIn col0(PD_3)
 5. InterruptIn col1(PD_2)
 6. InterruptIn col2(PD_1)
