@@ -76,6 +76,11 @@ The main program that implement the logic. Spin polling and interrupts are used 
 
 The keypad is used for user input, LCD will react to the user input of keypad.
 
+spin_polling is used to output 1 from each of PD_4, PD_5, PD_6 and PD_7 periodically, so that the only one key is detected at a time.
+spin_polling has a interval of 75 ms between the outputs, so that pressed key is not repeated twice or more. 
+75 ms is used because pressing a key does not take more than 75 ms in normal conditions
+
+Interrupts are rising edge triggered by the keys on the keypad.
 
 
 
