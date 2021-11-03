@@ -85,6 +85,7 @@ Things Declared
 1. "mbed.h"
 2. "lcd1602.h"
 3. char const keypad[4][4] = {
+
         {'1','2','3','A'}, 
         {'4','5','6','B'},  
         {'7','8','9','C'},    
