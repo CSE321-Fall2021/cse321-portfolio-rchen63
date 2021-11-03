@@ -1,7 +1,7 @@
 -------------------
 Last Update date
 -------------------
-10/14/2021
+11/02/2021
 
 -------------------
 About
@@ -14,7 +14,10 @@ An alarm/timer system will be implemented using the Necleo embedded platform.
 --------------------
 Features
 --------------------
-None
+-It has a fast response time of the keypad. 
+
+-The alarm system is easy to implement and build.
+
 
 
 --------------------
@@ -26,6 +29,14 @@ Required Materials
 
 -1602 LCD
 
+-6 LEDs
+
+-Jumper wires
+
+-Resistors
+
+-Breadboard
+
 
 --------------------
 Resources and References
@@ -34,6 +45,10 @@ Resources and References
 IntteruptIn: https://os.mbed.com/docs/mbed-os/v6.14/apis/interruptin.html
 
 Thread_sleep_for: https://os.mbed.com/docs/mbed-os/v6.12/mbed-os-api-doxy/group__mbed__thread.html#gaaa7efb95f13c2f6055a930fd8ae06942
+     
+STMicroelectronics, UM2179 User Manual: https://www.st.com/resource/en/user_manual/dm00368330-stm32-nucleo-144-boards-mb1312-stmicroelectronics.pdf
+    
+STM32L4 Reference manual:  https://www.st.com/resource/en/reference_manual/dm00310109-stm32l4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
 
 
 --------------------
@@ -47,7 +62,7 @@ Load the codes to Nucleo.
 
 Press "A" on keypad to start the timer.
 
-Press "B" on keypad to stop/turn off.
+Press "B" on keypad to pause the timer.
 
 Press "D" on keypad to start input the time.
 
@@ -61,7 +76,7 @@ The main program that implement the logic. Spin polling and interrupts are used 
 
 The keypad is used for user input, LCD will react to the user input of keypad.
 
-Currently, only time inputing part is implemented. More function will be implemented lately.
+
 
 
 ----------
@@ -69,7 +84,11 @@ Things Declared
 ----------
 1. "mbed.h"
 2. "lcd1602.h"
-3. keypad
+3. char const keypad[4][4] = {
+        {'1','2','3','A'}, 
+        {'4','5','6','B'},  
+        {'7','8','9','C'},    
+        {'*','0','#','D'}   
 4. InterruptIn col0(PD_3)
 5. InterruptIn col1(PD_2)
 6. InterruptIn col2(PD_1)
@@ -82,9 +101,9 @@ Things Declared
 13. CSE321_LCD LCD(16, 2, LCD_5x8DOTS, PB_9, PB_8)
 14. int row = 0
 15. int col = 0
-16. ready = 0
-17. pause = 0
-18. time_up = 0
+16. int ready = 0
+17. int pause = 0
+18. int time_up = 0
 19. int press = 0
 20. char Time[5] = {'0',':','0','0',0}
 
@@ -92,18 +111,7 @@ Things Declared
 ----------
 API and Built In Elements Used
 ----------
-IntteruptIn: 
-
-    This creates a reference to an interrupt with a variable name to allow
-    additional interaction. This interrupt is triggered by the button, with actions
-    on both rise and fall of the signal.
-    There are methods to configure the interrupt, specifically: rise and fall.
-    https://os.mbed.com/docs/mbed-os/v6.14/apis/interruptin.html
-
-Thread_sleep_for:
-
-    Thread_sleep_for is a time delay function, causes unit delay.
-    https://os.mbed.com/docs/mbed-os/v6.12/mbed-os-api-doxy/group__mbed__thread.html#gaaa7efb95f13c2f6055a930fd8ae06942
+lcd1602.cpp and lcd1602.h is provided by Dr. Winikus. The two files contains API that utilized the 1602 LCD to perform different functions like print, setCursor.
 
 
 ----------
