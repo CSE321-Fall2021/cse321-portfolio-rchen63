@@ -20,4 +20,8 @@ This repository will contain the project works of CSE 321.
 
 11.02:
     
-    Project 2 complete and uploaded
+    Project 2 completed and uploaded
+    
+11.17:
+    
+    Project 3 stage 1 completed and uploaded
