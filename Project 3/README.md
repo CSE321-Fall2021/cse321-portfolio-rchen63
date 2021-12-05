@@ -80,8 +80,6 @@ Resources and References
 Getting Started
 --------------------
 
-![schematic](https://user-images.githubusercontent.com/70613648/144765018-2d48cfcc-2f99-4044-b870-ee0b31ac7f7f.PNG)
-
 1.	Mbed Studio is needed to compile the codes into Nucleo L4R5ZI.
 2.	Create an empty Mbed OS program.
 3.	Download the files listed below into the program folder
@@ -119,7 +117,8 @@ Getting Started
 	-	Connect SDA to the column with PB_9
 	-	Connect SCL to the column with PB_8
 
-
+- Schematic:
+![schematic](https://user-images.githubusercontent.com/70613648/144765018-2d48cfcc-2f99-4044-b870-ee0b31ac7f7f.PNG)
 
 --------------------
 CSE321_project2_rchen63_main.cpp:
@@ -139,26 +138,6 @@ Interrupts are rising edge triggered by the keys on the keypad.
 ----------
 Things Declared
 ----------
-1. "mbed.h"
-2. "lcd1602.h"
-3. char const keypad[4][4] = {{'1','2','3','A'},{'4','5','6','B'},{'7','8','9','C'},{'*','0','#','D'}}
-4. InterruptIn col0(PD_3)
-5. InterruptIn col1(PD_2)
-6. InterruptIn col2(PD_1)
-7. InterruptIn col3(PD_0)
-8. void isr_col0()
-9. void isr_col1()
-10. void isr_col2()
-11. void isr_col3()
-12. void spin_polling()
-13. CSE321_LCD LCD(16, 2, LCD_5x8DOTS, PB_9, PB_8)
-14. int row = 0
-15. int col = 0
-16. int ready = 0
-17. int pause = 0
-18. int time_up = 0
-19. int press = 0
-20. char Time[5] = {'0',':','0','0',0}
 
 
 ----------
