@@ -71,35 +71,15 @@
 #include "DHT.h"
 #include "lcd1602.h"
 
-char const keypad[4][4] = {
-        {'1','2','3','A'},      //row 0
-        {'4','5','6','B'},      //row 1
-        {'7','8','9','C'},      //row 2
-        {'*','0','#','D'}       //row 3
-//column: 0   1   2   3
-    };
-
-    char k[1] = {' '};
-
-Mutex lock;         //Mutex is used for critical section protection.
-Thread polling;     //This thread is used for spin_polling
-Thread readTemp;    // This thread is used to read the temperature in Celsius
-Thread buzzerIO;    // This thread monitors the temperature and make the buzzer alert when current temperature is out of range.
-Thread interrupts;  // This thread is used for interrupts triggers
 
 EventQueue interruptQueue(32 * EVENTS_QUEUE_SIZE);  // EvenetQueue is used for synchronization so that isrs execute in orders.
-
-//Timer t;
 InterruptIn col0(PD_3,PullDown);     // Column 0 is triggered by PD_3
 InterruptIn col1(PD_2,PullDown);     // Column 1 is triggered by PD_2
 InterruptIn col2(PD_1,PullDown);     // Column 2 is triggered by PD_1
 InterruptIn col3(PD_0,PullDown);     // Column 3 is triggered by PD_0
-
 CSE321_LCD LCD(16, 2, LCD_5x10DOTS, PB_9, PB_8); // LCD, SDA to PB_9 and SCL to PB_8
 DHT11 DHT(PB_10);           // DHT11
 DigitalOut buzzer(PB_11);   // Buzzer recieves signal from PB_11
-
-
 
 void isr_col0();        // ISR Handler of interrupt col0
 void isr_col1();        // ISR Handler of interrupt col1
@@ -109,8 +89,6 @@ void spin_polling();    // Spin polling to output from the rows
 void read_temperature();    // Used in Thread readTemp to read temperature, it reads the temperature in Celsius and display it on the LCD
 void readBuzzer();      // Used in Thread buzzerIO to make the buzzer alert
 
-
-
 int row = 0;     //row
 int col = 0;     // column
 int press = 0;   // If a key on the keypad is pressed, press = 1;
@@ -119,9 +97,24 @@ int lowerBound = 10;    // Default lower bound of temperature is 10 Celsius degr
 int upperBound = 35;    // Default upper bound of temperature is 35 Celsius degree
 int currentTemp =25;        // Global variable used for store the current temperature in Celsius
 int errorTemp = 0;      // If an error happens, errorTemp = 500;
-
-
+char const keypad[4][4] = {
+        {'1','2','3','A'},      //row 0
+        {'4','5','6','B'},      //row 1
+        {'7','8','9','C'},      //row 2
+        {'*','0','#','D'}       //row 3
+//column: 0   1   2   3
+    };
+char k[1] = {' '};
 char set_range[7]={'1','0','C','-','3','5','C'};  // LCD print this string.
+
+Mutex lock;         //Mutex is used for critical section protection.
+Thread polling;     //This thread is used for spin_polling
+Thread readTemp;    // This thread is used to read the temperature in Celsius
+Thread buzzerIO;    // This thread monitors the temperature and make the buzzer alert when current temperature is out of range.
+Thread interrupts;  // This thread is used for interrupts triggers
+
+
+
 
 
 
