@@ -197,19 +197,19 @@ API and Built In Elements Used
 Custom Functions
 ----------
 
-isr_col0:
+isr_col1:
 
-    Description:
-        ISR handler of the intterupt col0, rise edge triggered by PD_3
-    Inputs:
-	None
-    Globally referenced things used:
-	row, col, press
+	Description:
+		ISR handler of the intterupt col0, rise edge triggered by PD_3
+	Inputs:
+		None
+	Globally referenced things used:
+		row, col, press
       
 isr_col1:
 
 	Description:
-		ISR handler of the intterupt col0, rise edge triggered by PD_2
+		ISR handler of the intterupt col1, rise edge triggered by PD_2
 	Inputs:
 		None
 	Globally referenced things used:
@@ -218,7 +218,7 @@ isr_col1:
 isr_col2:
 
 	Description:
-		ISR handler of the intterupt col0, rise edge triggered by PD_1
+		ISR handler of the intterupt col2, rise edge triggered by PD_1
 	Inputs:
 		None
 	Globally referenced things used:
@@ -227,7 +227,7 @@ isr_col2:
 isr_col3:
 
 	Description:
-		ISR handler of the intterupt col0, rise edge triggered by PD_0
+		ISR handler of the intterupt col3, rise edge triggered by PD_0
 	Inputs:
 		None
 	Globally referenced things used:
