@@ -58,31 +58,64 @@ Required Materials
 Resources and References
 --------------------
 
-IntteruptIn: https://os.mbed.com/docs/mbed-os/v6.14/apis/interruptin.html
+-	IntteruptIn: https://os.mbed.com/docs/mbed-os/v6.14/apis/interruptin.html
 
-Thread_sleep_for: https://os.mbed.com/docs/mbed-os/v6.12/mbed-os-api-doxy/group__mbed__thread.html#gaaa7efb95f13c2f6055a930fd8ae06942
+-	Thread_sleep_for: https://os.mbed.com/docs/mbed-os/v6.12/mbed-os-api-doxy/group__mbed__thread.html#gaaa7efb95f13c2f6055a930fd8ae06942
      
-STMicroelectronics, UM2179 User Manual: https://www.st.com/resource/en/user_manual/dm00368330-stm32-nucleo-144-boards-mb1312-stmicroelectronics.pdf
+-	STMicroelectronics, UM2179 User Manual: https://www.st.com/resource/en/user_manual/dm00368330-stm32-nucleo-144-boards-mb1312-stmicroelectronics.pdf
     
-STM32L4 Reference manual:  https://www.st.com/resource/en/reference_manual/dm00310109-stm32l4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
+-	STM32L4 Reference manual:  https://www.st.com/resource/en/reference_manual/dm00310109-stm32l4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
 
+-	DigitalOut: https://os.mbed.com/docs/mbed-os/v6.8/apis/digitalout.html
+
+-	Watchdog: https://os.mbed.com/docs/mbed-os/v6.15/apis/watchdog.html
+
+-	Mutex: https://os.mbed.com/docs/mbed-os/v6.15/apis/mutex.html
+
+-	Thread: https://os.mbed.com/docs/mbed-os/v6.15/apis/thread.html
+
+-	EventQueue: https://os.mbed.com/docs/mbed-os/v6.15/apis/eventqueue.html
 
 --------------------
 Getting Started
 --------------------
-Keypad: Connect pin 8 to PD_7, pin 7 to PD_6, pin 6 to PD_5, pin 5 to PD_4, pin 4 to PD_3, pin 3 to PD_2, pin 2 to PD_1  and pin 1 to PD_0.
+1.	Mbed Studio is needed to compile the codes into Nucleo L4R5ZI.
+2.	Create an empty Mbed OS program.
+3.	Download the files listed below into the program folder
+	-	CSE321_project3_rchen63_main.cpp
+	-	DHT.cpp
+	-	DHT.h
+	-	lcd1602.cpp
+	-	lcd1602.h
+	-	mbed_app.json
+4.	Connect Nucleo L4R5ZI to the computer.
+5.	Click “Run program” to compile the code into Nucleo L4R5ZI.
+6.	Connect the 4x4 membrane matrix keypad directly to Nucleo L4R5ZI
+	-	Connect pin 8 to PB_7
+	-	Connect pin 7 to PB_6
+	-	Connect pin 6 to PB_5
+	-	Connect pin 5 to PB_4
+	-	Connect pin 4 to PB_3
+	-	Connect pin 3 to PB_2
+	-	Connect pin 2 to PB_1
+	-	Connect pin 1 to PB_0
+7.	Connect +5V to the power rail with ‘+’ sign on the breadboard, the rail is called VCC rail.
+8.	Connect GND to the power rail with ‘-’ sign on the breadboard, the rail is called GND rail.
+9.	Connect PB_8, PB_9, PB_10, PB 11 and +3V3 each to a different column
+10.	Buzzer
+	-	Connect GND to the GND rail
+	-	Connect VCC to the column with +3V3
+	-	Connect I/O to the column with PB_11
+	11.	DHT11
+	-	Connect GND to the GND rail
+	-	Connect VCC to the VCC rail
+	-	Connect OUT to the column with PB_10
+12.	1602 LCD
+	-	Connect GND to the GND rail
+	-	Connect VCC to the VCC rail
+	-	Connect SDA to the column with PB_9
+	-	Connect SCL to the column with PB_8
 
-1602LCD: Connect GND to GND, VCC to +5V, SDA to PB_9 and SCL to PB_8.
-
-Load the codes to Nucleo.
-
-Press "A" on keypad to start the timer.
-
-Press "B" on keypad to pause the timer.
-
-Press "D" on keypad to start input the time.
-
-Time is entered as m:ss.
 
 
 --------------------
