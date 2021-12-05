@@ -79,6 +79,9 @@ Resources and References
 --------------------
 Getting Started
 --------------------
+
+![schematic](https://user-images.githubusercontent.com/70613648/144765018-2d48cfcc-2f99-4044-b870-ee0b31ac7f7f.PNG)
+
 1.	Mbed Studio is needed to compile the codes into Nucleo L4R5ZI.
 2.	Create an empty Mbed OS program.
 3.	Download the files listed below into the program folder
