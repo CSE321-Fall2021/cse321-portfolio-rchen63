@@ -36,19 +36,22 @@ Features
 --------------------
 Required Materials
 --------------------
--Nucleo L4R5ZI
+-	DHT11 temperature humidity sensor
 
--4x4 Matrix Membrane Keypad
+-	4x4 membrane matrix keypad
 
--1602 LCD
+-	1602 LCD screen
 
--6 LEDs
+-	ARCELI Passive Low Level Trigger Buzzer
 
--Jumper wires
+-	Nucleo L4R5ZI
 
--Resistors
+-	Jumper wires
+	-	At least 10 Male to Female jumper wires
+	-	At least 20 Male to Male jumper wires
 
--Breadboard
+-	Breadboard.
+
 
 
 --------------------
