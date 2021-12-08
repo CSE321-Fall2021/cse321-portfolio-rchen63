@@ -268,9 +268,7 @@ int main()
                 }
                 lock.unlock();
             }else if(keypad[row][col]=='C' && buzzer == 0){  // While the buzzer is alerting, and key 'C' on the keypad is pressed, stop the buzzer for 1 minute
-                lock.lock();
                 pressC=1;
-                lock.unlock();
             }
         }
     }
@@ -350,6 +348,7 @@ void isr_col3(){   // A key on column 3 is pressed
 
 void read_temperature(){
     while(true){
+        
         while(errorTemp>1){   // While errorTemp is greater than 1, the error message will be displayed for 5 seconds
             lock.lock();
             thread_sleep_for(10);
@@ -366,6 +365,7 @@ void read_temperature(){
         }
         // Display the current temperature
         lock.lock();
+        Watchdog::get_instance().kick();
         DHT.read();
         LCD.setCursor(0, 1);
         LCD.print("Current Temp:");
@@ -386,14 +386,17 @@ void read_temperature(){
 void readBuzzer(){
     while(true){
         if(currentTemp<lowerBound || currentTemp>upperBound){  // When the current temperature is out of range, buzzer start alerting.
+            thread_sleep_for(3000);                 //Wait for 3 seconds to see if that is data transfer error
             if(pressC==1){
                 thread_sleep_for(60000);
                 pressC=0;
             }else{
-                buzzer = 0;
-                thread_sleep_for(500);
-                buzzer = 1;
-                thread_sleep_for(500);
+                while(currentTemp<lowerBound || currentTemp>upperBound){
+                    buzzer = 0;
+                    thread_sleep_for(500);
+                    buzzer = 1;
+                    thread_sleep_for(500);
+                }
             }
             
         }
