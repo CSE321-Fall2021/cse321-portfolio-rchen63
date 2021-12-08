@@ -3,7 +3,6 @@
  
  * Purpose: 
     * This is the porject 3 of CSE321, fall 2021, University at Buffalo.
-
     * A temperature alarm system is designed and implemeented using Nucleo L4R5ZI, 
       1602 LCD screen, 4x4 Membrane Matrix keypad, DHT11 temperature humidity sensor,
       and a low level trigger buzzer. 
@@ -24,11 +23,9 @@
     spin_polling();
     void readBuzzer();
     void read_temperature();
-
  * The Input: 
     * 4x4 membrane matrix keypad
     * DHT11 temperature humidity sensor
-
  * The Output:
     * 1602 LCD Screen
     * buzzer
@@ -49,7 +46,6 @@
 	* The LCD displays Range: followed by the set temperature range on the top row and displays Current Temp: followed by the current temperature in Celsius on the bottom row.
 	* When inputting time, Enter new range: is displayed on the top row of LCD and the user can input the range on the second row of the LCD.
 	* The alarm runs “forever”
-
  
  * Sourses/References used:
     * IntteruptIn: https://os.mbed.com/docs/mbed-os/v6.14/apis/interruptin.html
@@ -268,7 +264,9 @@ int main()
                 }
                 lock.unlock();
             }else if(keypad[row][col]=='C' && buzzer == 0){  // While the buzzer is alerting, and key 'C' on the keypad is pressed, stop the buzzer for 1 minute
+                lock.lock();
                 pressC=1;
+                lock.unlock();
             }
         }
     }
@@ -385,13 +383,13 @@ void read_temperature(){
 
 void readBuzzer(){
     while(true){
-        if(currentTemp<lowerBound || currentTemp>upperBound){  // When the current temperature is out of range, buzzer start alerting.
-            thread_sleep_for(3000);                 //Wait for 3 seconds to see if that is data transfer error
+        if(currentTemp<lowerBound || currentTemp>upperBound){  // When the current temperature is out of range, buzzer start alerting.              
             if(pressC==1){
                 thread_sleep_for(60000);
                 pressC=0;
             }else{
-                while(currentTemp<lowerBound || currentTemp>upperBound){
+                thread_sleep_for(3000);              //Wait for 3 seconds to see if that is data transfer error
+                while((currentTemp<lowerBound || currentTemp>upperBound) && pressC==0){
                     buzzer = 0;
                     thread_sleep_for(500);
                     buzzer = 1;
@@ -402,4 +400,3 @@ void readBuzzer(){
         }
     }
 }
-
